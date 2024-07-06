@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="wishh-style.css">
+
+    <body>
+        <img src="stickmanhug.png" style="height: 500px; width: 700px; padding-top: 100px;">
+        <div class="content">
+        <div class="content__container">
+            <p class="content__container__text">Happy Birthday</p>
+            <ul class="content__container__list">
+                <li class="content__container__list__item">Sindhuja&#129293;</li>
+                <li class="content__container__list__item">Vootukaari&#129498;&#8205;&#9792;&#65039;</li>
+                <li class="content__container__list__item">Thangame&#128151;
+                </li>
+                <li class="content__container__list__item">Chello</li>
+            </ul>
+    </div>
+    </div>
+    <div class="message" onclick="clicker()" id="clicker"></div>
+    <p class="chinselection">where he kissed you?&#128536;</p>
+    <div class="kissbuttons">
+    <a href="#" class="buttonverify" onclick="confirmchin()">Left Chin</a>
+    <a href="#" class="buttonverify2" onclick="confirmchin()">Right Chin</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <script>
+        function confirmchin(){
+            alert("[Your Vootukaaran's BOT]: That's nice awwww")
+            window.location.href='gift.html'
+        }
+        function getRandomEmoji() {
+            var emojis = ['🦋', '😘', '🧚‍♀️', '🫂', '🥳', '🐱']; // Add more emojis as needed
+            return emojis[Math.floor(Math.random() * emojis.length)];
+        }
+
+        // Function to create smiley emojis throughout the body
+        function createSmileys() {
+            var numEmojis = 50; // Adjust number of emojis as needed
+            var body = document.querySelector('body');
+            for (var i = 0; i < numEmojis; i++) {
+                var smiley = document.createElement('div');
+                smiley.textContent = getRandomEmoji();
+                smiley.classList.add('smiley');
+                smiley.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+                smiley.style.top = Math.random() * 100 + 'vh'; // Random vertical position
+                smiley.style.fontSize = Math.random() * 1.5 + 0.5 + 'em'; // Random size
+                body.appendChild(smiley);
+            }
+        }
+
+        createSmileys();
+        document.addEventListener('DOMContentLoaded', function() {
+
+            var duration = 15 * 500;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            var interval = setInterval(function() {
+                var timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                var particleCount = 50 * (timeLeft / duration);
+                confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
+                confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
+            }, 250);
+        });
+    </script>
+</body>
+</head>

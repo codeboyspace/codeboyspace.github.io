@@ -1,0 +1,2 @@
+alert("moon");
+confetti();
